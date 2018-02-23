@@ -16,7 +16,13 @@ namespace IwantToEarn.api.Controllers
             this._context = _context;
         }
 
-        [HttpGet("id")]
+        [HttpGet]
+        public string Index()
+        {
+            return "działa";
+        }
+
+        [HttpGet("{id}")]
         public JobModel Get(int id)
         {
            return _context.GetJob(id);
