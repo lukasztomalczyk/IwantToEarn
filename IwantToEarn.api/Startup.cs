@@ -28,6 +28,7 @@ namespace IwantToEarn.api
             services.AddMvc();
             services.AddDbContext<DbApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DevelopConnection")));
+                services.AddTransient<IJobRepository, JobRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

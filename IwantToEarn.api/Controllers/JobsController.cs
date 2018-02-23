@@ -10,10 +10,10 @@ namespace IwantToEarn.api.Controllers
     [Route("api/[controller]")]
     public class JobsController : Controller
     {
-        private readonly IJobRepository _context;
-        public JobsController(IJobRepository _context)
+        private IJobRepository _jobRepository;
+        public JobsController(IJobRepository jobRepository)
         {
-            this._context = _context;
+            this._jobRepository = jobRepository;
         }
 
         [HttpGet]
@@ -22,10 +22,10 @@ namespace IwantToEarn.api.Controllers
             return "działa";
         }
 
-        [HttpGet("{id}")]
+     /*   [HttpGet("{id}")]
         public JobModel Get(int id)
         {
            return _context.GetJob(id);
-        }
+        } */
     }
 }
