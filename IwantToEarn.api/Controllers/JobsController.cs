@@ -30,10 +30,17 @@ namespace IwantToEarn.api.Controllers
         }
 
         [HttpPost]
-        public JobModel Create([FromBody] JobModel _model)
+        public string Create([FromBody] JobModel _model)
         {
-           var _addJob = _jobRepository.Create(_model);
-           return _addJob;
+            if(ModelState.IsValid)
+            {
+                 var _addJob = _jobRepository.Create(_model);
+                 return "ok";
+            }
+            else
+            {
+                return "blad";
+            }
         }
     }
 }

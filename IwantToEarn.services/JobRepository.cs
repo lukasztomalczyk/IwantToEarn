@@ -34,7 +34,9 @@ namespace IwantToEarn.services
 
         public JobModel Create(JobModel _job)
         {
-            return _context.JobModels.Add(_job);
+             _context.JobModels.Add(_job);
+             _context.SaveChanges();
+             return _job;
         }
     }
 }

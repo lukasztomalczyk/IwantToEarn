@@ -8,15 +8,17 @@ SELECT * FROM INFORMATION_SCHEMA.TABLES
 SELECT * FROM JobModels
 
 INSERT INTO JobModels
-VALUES ('Lukasz', 'password', 'emaila@wp.pl')
+VALUES (1, 'password', 'emaila@wp.pl')
 GO
 
 CREATE TABLE [JobModels] (
-    [Id] int NOT NULL IDENTITY,
-    [Cash] nvarchar(max) NULL,
-    [Description] nvarchar(max) NULL,
-    [Title] nvarchar(max) NULL,
-    [Where] nvarchar(max) NULL,
-    [WholeOrHour] nvarchar(max) NULL,
-    CONSTRAINT [PK_JobModels] PRIMARY KEY ([Id])
+	[id] [nchar](10) NOT NULL,
+	[Cash] [numeric](18, 0) NOT NULL,
+	[Description] [ntext] NOT NULL,
+	[Title] [nvarchar](50) NOT NULL,
+	[Where] [nchar](15) NOT NULL,
+	[WholeOrHour] [bit] NOT NULL
 );
+
+DROP TABLE JobModels
+
