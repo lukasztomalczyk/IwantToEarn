@@ -18,7 +18,8 @@ namespace IwantToEarn.services
 
         public List<JobModel> GetAllJobsList()
         {
-            throw new System.NotImplementedException();
+            var _jobs = _context.JobModels.ToList();
+            return _jobs;
         }
 
         public JobModel GetJob(int _id)
@@ -29,6 +30,11 @@ namespace IwantToEarn.services
         public JobModel UpdateJob(JobModel _job)
         {
             throw new System.NotImplementedException();
+        }
+
+        public JobModel Create(JobModel _job)
+        {
+            return _context.JobModels.Add(_job);
         }
     }
 }
