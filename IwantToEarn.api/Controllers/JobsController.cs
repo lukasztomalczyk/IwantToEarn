@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using IwantToEarn.services;
 using Microsoft.AspNetCore.Mvc;
@@ -22,10 +23,17 @@ namespace IwantToEarn.api.Controllers
             return "działa";
         }
 
-     /*   [HttpGet("{id}")]
+       [HttpGet("{id}")]
         public JobModel Get(int id)
         {
-           return _context.GetJob(id);
-        } */
+           return _jobRepository.GetJob(id);
+        }
+
+        [HttpPost]
+        public JobModel Create([FromBody] JobModel _model)
+        {
+           var _addJob = _jobRepository.Create(_model);
+           return _addJob;
+        }
     }
 }
