@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using IwantToEarn.services.DbModel;
 
-namespace IwantToEarn.services
+namespace IwantToEarn.services.Repository
 {
     public class JobRepository : IJobRepository
     {

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using IwantToEarn.services;
+using IwantToEarn.services.DbModel;
+using IwantToEarn.services.Json;
+using IwantToEarn.services.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IwantToEarn.api.Controllers
@@ -20,14 +22,14 @@ namespace IwantToEarn.api.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            if(id!=0)
-            {
-                var _jobModel = _jobRepository.GetJob(id);
-                return StatusCode(200, _jobModel);
+           try
+           {
+               var _model = _jobRepository.GetJob(id);
+               return StatusCode(200,_model);
             }
-            else
+            catch
             {
-                return StatusCode(404, "Błędny ID");
+                  return StatusCode(404, "Błędny ID");
             }
         }
 
@@ -36,8 +38,16 @@ namespace IwantToEarn.api.Controllers
         {
             if(ModelState.IsValid)
             {
-                 var _addJob = _jobRepository.Create(_model);
-                 return StatusCode(200, _model);
+                try
+                {
+                    var _addJob = _jobRepository.Create(_model);
+                    return StatusCode(200, _model);
+                }
+                catch
+                {
+                   return StatusCode(404, "Nie można utworzyć obiektu");
+                }
+
             }
             else
             {

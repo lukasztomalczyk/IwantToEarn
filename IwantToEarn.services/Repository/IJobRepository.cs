@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using IwantToEarn.services.DbModel;
 
-namespace IwantToEarn.services
+namespace IwantToEarn.services.Repository
 {
     public interface IJobRepository
     {

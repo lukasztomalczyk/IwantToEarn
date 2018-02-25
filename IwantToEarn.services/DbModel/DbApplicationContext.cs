@@ -1,8 +1,8 @@
 ﻿using System;
-using IwantToEarn.DbConfig;
+using IwantToEarn.services.DbConfig;
 using Microsoft.EntityFrameworkCore;
 
-namespace IwantToEarn.services
+namespace IwantToEarn.services.DbModel
 {
     public class DbApplicationContext : DbContext
     {

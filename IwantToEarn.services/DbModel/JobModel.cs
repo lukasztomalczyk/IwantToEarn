@@ -1,4 +1,4 @@
-namespace IwantToEarn
+namespace IwantToEarn.services.DbModel
 {
     public class JobModel
     {

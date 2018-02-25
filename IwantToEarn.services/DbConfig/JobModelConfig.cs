@@ -1,15 +1,15 @@
+using IwantToEarn.services.DbModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace IwantToEarn.DbConfig
+namespace IwantToEarn.services.DbConfig
 {
     public class JobModelConfig : IEntityTypeConfiguration<JobModel>
     {
         public void Configure(EntityTypeBuilder<JobModel> builder)
         {
             builder.Property(p => p.Id)
-                   .HasColumnType("int")
-                   .IsRequired();
+                   .HasColumnType("int");
             builder.HasKey(a => a.Id);
             builder.Property(p => p.Title)
                    .HasMaxLength(25)
