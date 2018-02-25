@@ -15,11 +15,11 @@ namespace IwantToEarn.services.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Cash = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Where = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    WholeOrHour = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Cash = table.Column<double>(type: "money", nullable: false),
+                    Description = table.Column<string>(type: "ntext", nullable: false),
+                    JobTitle = table.Column<string>(type: "nchar(20)", maxLength: 25, nullable: false),
+                    WhereIsJob = table.Column<string>(type: "nchar(20)", maxLength: 20, nullable: false),
+                    ForHourOrWholeJob = table.Column<int>(type: "bit", maxLength: 1, nullable: false)
                 },
                 constraints: table =>
                 {

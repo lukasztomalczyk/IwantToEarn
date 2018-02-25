@@ -38,7 +38,7 @@ namespace IwantToEarn.api
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStatusCodePages();
             app.UseMvc();
         }
     }

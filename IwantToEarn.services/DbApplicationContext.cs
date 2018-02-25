@@ -1,4 +1,5 @@
 ﻿using System;
+using IwantToEarn.DbConfig;
 using Microsoft.EntityFrameworkCore;
 
 namespace IwantToEarn.services
@@ -11,5 +12,10 @@ namespace IwantToEarn.services
         }
 
         public DbSet<JobModel> JobModels { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new JobModelConfig());
+        }
     }
 }

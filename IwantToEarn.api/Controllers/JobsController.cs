@@ -17,29 +17,31 @@ namespace IwantToEarn.api.Controllers
             this._jobRepository = jobRepository;
         }
 
-        [HttpGet]
-        public string Index()
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
         {
-            return "działa";
-        }
-
-       [HttpGet("{id}")]
-        public JobModel Get(int id)
-        {
-           return _jobRepository.GetJob(id);
+            if(id!=0)
+            {
+                var _jobModel = _jobRepository.GetJob(id);
+                return StatusCode(200, _jobModel);
+            }
+            else
+            {
+                return StatusCode(404, "Błędny ID");
+            }
         }
 
         [HttpPost]
-        public string Create([FromBody] JobModel _model)
+        public IActionResult Create([FromBody] JobModel _model)
         {
             if(ModelState.IsValid)
             {
                  var _addJob = _jobRepository.Create(_model);
-                 return "ok";
+                 return StatusCode(200, _model);
             }
             else
             {
-                return "blad";
+                return StatusCode(404, "bład");
             }
         }
     }

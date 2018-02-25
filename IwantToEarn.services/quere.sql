@@ -22,3 +22,6 @@ CREATE TABLE [JobModels] (
 
 DROP TABLE JobModels
 
+DELETE FROM
+JobModels
+ WHERE id = 1
