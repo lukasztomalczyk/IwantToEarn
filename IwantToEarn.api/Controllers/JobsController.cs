@@ -4,7 +4,6 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using IwantToEarn.services.DbModel;
-using IwantToEarn.services.Json;
 using IwantToEarn.services.Repository;
 using Microsoft.AspNetCore.Mvc;
 

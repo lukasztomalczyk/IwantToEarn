@@ -1,14 +1,15 @@
 using System;
-using Xunit;
+using NUnit.Framework;
 
 namespace IwantToEarn.services.test
 {
-    public class UnitTest1
+     [TestFixture]
+    public class JobRepositoryTest
     {
-        [Fact]
+        [Test]
         public void Test1()
         {
-
+                
         }
     }
 }
